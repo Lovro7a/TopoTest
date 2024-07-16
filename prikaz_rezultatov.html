@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prikaz rezultatov - TopoTest</title>
+    <link rel="stylesheet" href="style_folder/style.css">
+</head>
+<body>
+    <div class="okvir_izbiranje">
+        <h1>TopoTest</h1>
+        <h1>-</h1>
+        <h1>Rezultati</h1>
+        <div class="izbiranje_window">
+            <h3 class="vprasanje" id="stevilo_vprasanj"></h3>
+            <h3 class="vprasanje" id="stevilo_pravilnih_odgovorov"></h3> 
+            <h3 class="vprasanje" id="koncniCas"></h3> 
+        </div>
+    </div>
+    <div class="prazno">
+        <div id="time"></div>
+        <div id="question_shown"></div>
+        <div id="slika"></div>
+        <div id="Opsen1"></div>
+        <div id="Opsen2"></div>
+        <div id="Opsen3"></div>
+        <div id="Opsen4"></div>
+    </div>
+    <script src="vrisovanje_slika_JS.js"></script>
+    <script>
+        let steviloVprasanj = localStorage.getItem("stevilo_vprasanj");
+        document.getElementById("stevilo_vprasanj").innerHTML = steviloVprasanj;
+        let Tocke = localStorage.getItem("stevilo_pravilnih_odgovorov");
+        document.getElementById("stevilo_pravilnih_odgovorov").innerHTML = Tocke;
+        let koncni_cas = localStorage.getItem("max_cas");
+        console.log(koncni_cas);
+        document.getElementById("koncniCas").innerHTML = "ČAS REŠEVANJA: " + koncni_cas;
+    </script>
+</body>
+</html>

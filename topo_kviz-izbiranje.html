@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topo kviz izbiranje - TopoTest</title>
+    <link rel="stylesheet" href="style_folder/style.css">
+</head>
+<body>
+    <div class="okvir_izbiranje">
+        <div class="izbiranje_window">
+            <h2 class="vprasanje" id="question_shown"></h3>
+            <img id="slika" src="" height="100px">
+            <div>
+                <button id="gumb1" onclick="check_awnser1()" class="gumb">
+                    <div id="Opsen1"></div>
+                </button>
+                <button onclick="check_awnser2()" class="gumb">
+                    <div id="Opsen2"></div>
+                </button>
+                <button onclick="check_awnser3()" id="button3" class="gumb">
+                    <div id="Opsen3"></div>
+                </button>
+                <button onclick="check_awnser4()" class="gumb">
+                    <div id="Opsen4"></div>
+                </button>
+            </div>
+            <h3 class="vprasanje" id="time"></h3>
+        </div>
+        
+    </div>
+    <script src="vrisovanje_slika_JS.js"></script>
+</body>
+</html>

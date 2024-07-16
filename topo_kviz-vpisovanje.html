@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topo kviz vpisovanje - TopoTest</title>
+    <link rel="stylesheet" href="style_folder/style.css">
+</head>
+<body>
+    <div class="okvir_izbiranje">
+        <div class="izbiranje_window">
+            <h2 class="vprasanje" id="question_shown"></h2>
+            <img id="slika" src="" height="100px">
+            <div>
+                <input id="Input_text" type="text" placeholder="VPIŠI IME TOPOGRAFSKEGA ZNAKA">
+            </div>
+            <button class="gumb_next" onclick="poslji_odgovor()">PREVERI ODGOVOR</button>
+            <h3 class="vprasanje" id="time"></h3>
+        </div>
+    </div>
+    <div class="prazno">
+        <div id="Opsen1"></div>
+        <div id="Opsen2"></div>
+        <div id="Opsen3"></div>
+        <div id="Opsen4"></div>
+    </div>
+    <script src="vrisovanje_slika_JS.js"></script>
+</body>
+</html>

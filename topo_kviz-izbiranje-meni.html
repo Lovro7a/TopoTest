@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meni zbiranje - TopoTest</title>
+    <link rel="stylesheet" href="style_folder/style.css">
+</head>
+<body>
+    <div class="okvir_izbiranje">
+        <div class="izbiranje_window">
+            <br>
+            <label for="include_naselja_gumb">VKLJUČI NASELJA IN OBJEKTE</label>
+            <input type="checkbox" id="include_naselja_gumb" onclick="include_naselja()" checked>
+            <br>
+            <label for="include_promet_gumb">VKLJUČI PROMET</label>
+            <input type="checkbox" id="include_promet_gumb" onclick="include_promet()">
+            <br>
+            <label for="include_relief_gumb">VKLJUČI RELIEF</label>
+            <input type="checkbox" id="include_relief_gumb" onclick="include_relief()">
+            <br>
+            <label for="include_vode_gumb">VKLJUČI VODOVJE</label>
+            <input type="checkbox" id="include_vode_gumb" onclick="include_vode()">
+            <br>
+            <label for="include_navtika_gumb">VKLJUČI MORJE IN MORSKO OBALO</label>
+            <input type="checkbox" id="include_navtika_gumb" onclick="include_navtika()">
+            <br>
+            <br>
+            <button class="gumb_next" onclick="start_quiz()">ZAČNI</button>
+        </div>
+    </div>
+    <script>
+        let awnsered_questions = [];
+        let znaki_za_objekte_in_naselja = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
+        let remove_kategorije = [];
+        let znaki_za_vode_list = [24];
+        let znaki_za_promet_list = ["znaki za promet"];
+        let znaki_za_relief_list = ["znaki za relief"];
+        let znaki_za_morje_in_obalo_list = ["znaki za obalo"];
+
+        remove_kategorije = [];
+        localStorage.setItem('removed_questions_localstorage', JSON.stringify(remove_kategorije));
+        include_naselja();
+        include_navtika();
+        include_promet();
+        include_relief();
+        include_vode();
+            
+        function include_vode() {
+            let checkbox = document.getElementById('include_vode_gumb');
+            if (checkbox.checked) {
+                //console.log(awnsered_questions);
+                remove_kategorije.push(...znaki_za_vode_list);
+                localStorage.setItem('removed_questions_localstorage', JSON.stringify(remove_kategorije));   
+            } 
+            else {
+                awnsered_questions.push(...znaki_za_vode_list);
+                //console.log(awnsered_questions);
+                localStorage.setItem('Awnsered_questions_localstorage', JSON.stringify(awnsered_questions));
+                //remove_kategorije = [];
+                //localStorage.setItem('removed_questions_localstorage', JSON.stringify(remove_kategorije));
+            }
+        }
+        function include_naselja() {
+            let checkbox2 = document.getElementById('include_naselja_gumb');
+            if (checkbox2.checked) {
+                remove_kategorije.push(...znaki_za_objekte_in_naselja);
+                localStorage.setItem('removed_questions_localstorage', JSON.stringify(remove_kategorije));   
+            } 
+            else {
+                awnsered_questions.push(...znaki_za_objekte_in_naselja);
+                localStorage.setItem('Awnsered_questions_localstorage', JSON.stringify(awnsered_questions));
+            }
+        }
+        function include_promet() {
+            let checkbox3 = document.getElementById('include_promet_gumb');
+            if (checkbox3.checked) {
+                remove_kategorije.push(...znaki_za_promet_list);
+                localStorage.setItem('removed_questions_localstorage', JSON.stringify(remove_kategorije));   
+            } 
+            else {
+                awnsered_questions.push(...znaki_za_promet_list);
+                localStorage.setItem('Awnsered_questions_localstorage', JSON.stringify(awnsered_questions));
+            }
+        }
+        function include_relief() {
+            let checkbox4 = document.getElementById('include_relief_gumb');
+            if (checkbox4.checked) {
+                remove_kategorije.push(...znaki_za_relief_list);
+                localStorage.setItem('removed_questions_localstorage', JSON.stringify(remove_kategorije));   
+            } 
+            else {
+                awnsered_questions.push(...znaki_za_relief_list);
+                localStorage.setItem('Awnsered_questions_localstorage', JSON.stringify(awnsered_questions));
+            }
+        }
+        function include_navtika() {
+            let checkbox5 = document.getElementById('include_navtika_gumb');
+            if (checkbox5.checked) {
+                remove_kategorije.push(...znaki_za_morje_in_obalo_list);
+                localStorage.setItem('removed_questions_localstorage', JSON.stringify(remove_kategorije));   
+            } 
+            else {
+                awnsered_questions.push(...znaki_za_morje_in_obalo_list);
+                localStorage.setItem('Awnsered_questions_localstorage', JSON.stringify(awnsered_questions));
+            }
+        }
+        function start_quiz(){
+            window.location.href = "topo_kviz-izbiranje.html";
+        }
+    </script>
+</body>
+</html>
